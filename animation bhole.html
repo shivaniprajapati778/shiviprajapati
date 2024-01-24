@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #111;
+    }
+
+    #shivaContainer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    #shivaImage {
+      width: 100%;
+      height: 100wv;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    #shivaImage:hover {
+      transform: rotate(360deg);
+    }
+  </style>
+</head>
+<body>
+  <div id="shivaContainer">
+    <img id="shivaImage" src="lord shiva 6.png" alt="Lord Shiva">
+  </div>
+
+  <script>
+    // You can add additional JavaScript functionality here if needed
+    const canvas = document.getElementById('shivaCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Set canvas size
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Lord Shiva's head
+    const headRadius = 50;
+    const headX = canvas.width / 2;
+    const headY = canvas.height / 2 - headRadius - 20;
+
+    // Lord Shiva's third eye
+    const thirdEyeRadius = 8;
+    const thirdEyeX = headX;
+    const thirdEyeY = headY - 30;
+
+    // Draw Lord Shiva
+    function drawShiva() {
+      // Clear the canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw head
+      ctx.beginPath();
+      ctx.arc(headX, headY, headRadius, 0, Math.PI * 2);
+      ctx.fillStyle = '#3498db';
+      ctx.fill();
+      ctx.closePath();
+
+      // Draw third eye
+      ctx.beginPath();
+      ctx.arc(thirdEyeX, thirdEyeY, thirdEyeRadius, 0, Math.PI * 2);
+      ctx.fillStyle = '#e74c3c';
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    // Animate Lord Shiva
+    function animate() {
+      drawShiva();
+
+      // Additional animations or interactions can be added here
+
+      requestAnimationFrame(animate);
+    }
+
+    // Start the animation
+    animate();
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+</html>
